@@ -19,6 +19,7 @@ $(document).ready(function(){
         alert("E' avvenuto un errore. ");
       }
     });
+    // clear input
     $("#input-list").val("");
   });
 
@@ -27,6 +28,21 @@ $(document).ready(function(){
   // CALL TO UPDATE (PUT)
 
   // CALL TO DELETE
+  $("#delete").click(function(){
+
+    // invio al server l'elemtento inserito in input
+    $.ajax({
+      "url": "http://157.230.17.132:3026/todos",
+      "method": "DELETE",
+      "success": function (data) {
+        $("#elm-list").remove();
+      },
+      "error": function (error) {
+        alert("E' avvenuto un errore. ");
+      }
+    });
+
+  });
 
   // FUNCTION ADD. ELEMENT with Handlebars
   function addElement(data){
