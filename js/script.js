@@ -5,22 +5,27 @@ $(document).ready(function(){
   $(".btn-list").click(function(){
 
     var element = $("#input-list").val();
-    // invio al server l'elemtento inserito in input
-    $.ajax({
-      "url": "http://157.230.17.132:3026/todos",
-      "method": "POST",
-      "data": {
-        "text": element
-      },
-      "success": function (data) {
-        addElement(data);
-      },
-      "error": function (error) {
-        alert("E' avvenuto un errore. ");
-      }
-    });
-    // clear input
-    $("#input-list").val("");
+    if (element != "") {
+      // invio al server l'elemtento inserito in input
+      $.ajax({
+        "url": "http://157.230.17.132:3026/todos",
+        "method": "POST",
+        "data": {
+          "text": element
+        },
+        "success": function (data) {
+          addElement(data);
+        },
+        "error": function (error) {
+          alert("E' avvenuto un errore. ");
+        }
+      });
+      // clear input
+      $("#input-list").val("");
+    } else {
+      alert("Non hai inserito nulla.")
+    }
+
   });
 
   // CALL TO READ
@@ -28,19 +33,22 @@ $(document).ready(function(){
   // CALL TO UPDATE (PUT)
 
   // CALL TO DELETE
-  $("#delete").click(function(){
-
-    // invio al server l'elemtento inserito in input
-    $.ajax({
-      "url": "http://157.230.17.132:3026/todos",
-      "method": "DELETE",
-      "success": function (data) {
-        $("#elm-list").remove();
-      },
-      "error": function (error) {
-        alert("E' avvenuto un errore. ");
-      }
-    });
+  $("#elm-template .delete").click(function(){
+    alert("stai cancellando l'elemento");
+    // var elmList = $(this).find("#list");
+    // var id = elmList.attr("id");
+    //
+    // // richiamo dal server l'elemtento inserito in lista
+    // $.ajax({
+    //   "url": "http://157.230.17.132:3026/todos/"+id,
+    //   "method": "DELETE",
+    //   "success": function (data) {
+    //     elmList.remove();
+    //   },
+    //   "error": function (error) {
+    //     alert("E' avvenuto un errore. ");
+    //   }
+    // });
 
   });
 
