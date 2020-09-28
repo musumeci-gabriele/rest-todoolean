@@ -11,11 +11,23 @@
   </head>
 
   <body>
+    <h1>ToDo List :</h1>
+    <!-- INSERIMENTO NUOVO ELEMENTO -->
+    <input id="input-list" type="text" placeholder="Inserisci alla lista.">
+    <button class="btn-list" type="button" name="button">Inserisci</button>
+    <!--// INSERIMENTO NUOVO ELEMENTO -->
 
+    <!-- TO TO LIST -->
+    <ul id="list">
 
+    </ul>
+    <!--// TO TO LIST -->
 
-
-
+    <!-- TEMPLATE HANDLEBARS -->
+    <script id="elm-template" type="text/x-handlebars-template">
+      <li id="">{{text}}</li>
+    </script>
+    <!-- TEMPLATE HANDLEBARS -->
 
     <script src="js/script.js" charset="utf-8"></script>
   </body>
